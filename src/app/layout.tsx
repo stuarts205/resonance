@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ClerkProvider } from "@clerk/nextjs";
+import { TRPCReactProvider } from "@/trpc/client";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -11,10 +12,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-      default: "Resonance",
-      template: "%s | Resonance",
+    default: "Resonance",
+    template: "%s | Resonance",
   },
-  description: "Experience the power of Resonance, your ultimate platform for seamless text-to-speech conversion and more.",
+  description:
+    "Experience the power of Resonance, your ultimate platform for seamless text-to-speech conversion and more.",
 };
 
 export default function RootLayout({
@@ -24,12 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={`${inter.variable} antialiased`}>
-          {children}
-          <Toaster />
-        </body>
-      </html>
+      <TRPCReactProvider>
+        <html lang="en">
+          <body className={`${inter.variable} antialiased`}>
+            {children}
+            <Toaster />
+          </body>
+        </html>
+      </TRPCReactProvider>
     </ClerkProvider>
   );
 }
