@@ -1,13 +1,11 @@
 "use client";
-
 import { useStore } from "@tanstack/react-form";
-
 import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Slider } from "@/components/ui/slider";
 import { useTypedAppFormContext } from "@/hooks/use-app-form";
-
 import { sliders } from "@/features/text-to-speech/data/sliders";
 import { ttsFormOptions } from "@/features/text-to-speech/components/text-to-speech-form";
+import { VoiceSelector } from "./voice-selector";
 
 export function SettingsPanelSettings() {
   const form = useTypedAppFormContext(ttsFormOptions);
@@ -15,14 +13,10 @@ export function SettingsPanelSettings() {
 
   return (
     <>
-      {/* Voice Style Dropdown Section */}
       <div className="border-b border-dashed p-4">
-        <p className="text-sm text-muted-foreground">
-          Voice selector coming soon
-        </p>
+        <VoiceSelector />
       </div>
 
-      {/* Voice Adjustments Section */}
       <div className="p-4 flex-1">
         <FieldGroup className="gap-8">
           {sliders.map((slider) => (
@@ -55,4 +49,4 @@ export function SettingsPanelSettings() {
       </div>
     </>
   );
-};
+}
