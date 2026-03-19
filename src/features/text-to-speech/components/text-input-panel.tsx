@@ -41,7 +41,7 @@ export function TextInputPanel() {
       <div className="shrink-0 p-4 lg:p-6">
         <div className="flex flex-col gap-3 lg:hidden">
           <GenerateButton
-            className="w-0"
+            className="w-full"
             disabled={isSubmitting}
             isSubmitting={isSubmitting}
             onSubmit={() => form.handleSubmit()}
